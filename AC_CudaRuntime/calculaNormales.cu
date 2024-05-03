@@ -42,7 +42,7 @@ int CalculoNormalesCPU()
 	int vV, vU;
 	int numDir;
 	int oKdir1, oKdir2;
-	/* La vencidad es:
+	/* La vecindad es:
 	*--*--*
 	|  |  |
 	*--X--*
