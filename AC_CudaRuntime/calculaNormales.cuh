@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/*  FICHERO:       calculaNormales.h									          */
+/*  FICHERO:       calculaNormales.cuh									          */
 /*  AUTOR:         Jorge Azorin											  */
 /*													                          */
 /*  RESUMEN												                      */
