@@ -139,8 +139,6 @@ int LeerSuperficie(const char* fichero);
 void
 runTest(int argc, char** argv)
 {
-
-
 	double gpu_start_time, gpu_end_time;
 	double cpu_start_time, cpu_end_time;
 
@@ -264,11 +262,16 @@ int LeerSuperficie(const char* fichero)
 	FILE* fpin; 			/* Fichero */
 	double x, y, z;
 
+	errno_t err;
+
+	// Open for read
+	err = fopen_s(&fpin, fichero, "r");
+
 	/* Apertura de Fichero */
-	if ((fpin = fopen(fichero, "r")) == NULL) return ERRORCALC;
+	if (err != 0) return ERRORCALC;
 	/* Lectura de cabecera */
-	if (fscanf(fpin, "Ancho=%d\n", &utotal) < 0) return ERRORCALC;
 	if (fscanf(fpin, "Alto=%d\n", &vtotal) < 0) return ERRORCALC;
+	if (fscanf(fpin, "Ancho=%d\n", &utotal) < 0) return ERRORCALC;
 	if (utotal * vtotal <= 0) return ERRORCALC;
 	/* Localizacion de comienzo */
 	if (feof(fpin)) return ERRORCALC;
